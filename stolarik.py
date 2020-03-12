@@ -19,3 +19,12 @@ class Relation:
                 self.relations = self.relations.append(subRelations)
         else:
             self.relations = relations
+
+    #1 returns true if x and y are in relation
+    def has(self, x, y):
+        if (x in self.values) and (y in self.values):
+            indexX = self.values.index(x)
+            indexY = self.values.index(y)
+            return self.relations[indexX][indexY]
+        else:
+            return False
