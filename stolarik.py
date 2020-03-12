@@ -77,3 +77,42 @@ class Relation:
                 if otherRelation.has(x,y):
                     newRelation = newRelation.add(x,y)
         return newRelation
+
+    #5 returns intrersection of two relations
+    def intersection(self, otherRelation):
+        newRelation = self.unitedValuesRelation(otherRelation)
+        for x in self.values:
+            for y in self.values:
+                if self.has(x,y) and otherRelation.has(x,y):
+                    newRelation = newRelation.add(x,y)
+        return newRelation
+
+    #6 returns subtraction of two relations
+    def subtract(self, otherRelation):
+        newRelation = self.unitedValuesRelation(otherRelation)
+        for x in self.values:
+            for y in self.values:
+                if self.has(x,y) and not(otherRelation.has(x,y)):
+                    newRelation = newRelation.add(x,y)
+        return newRelation
+
+    #7 returns inverse relation
+    def inverse(self):
+        newRelation = self.unitedValuesRelation(self)
+        for x in self.values:
+            for y in self.values:
+                if not(self.has(x,y)):
+                    newRelation = newRelation.add(x,y)
+        return newRelation
+
+    #8 returns composition of 2 relations
+    def compose(self, otherRelation):
+        newRelation = self.unitedValuesRelation(otherRelation)
+        for x in self.values:
+            for y in self.values:
+                if self.has(x,y):
+                    for y2 in otherRelation.values:
+                        if otherRelation.has(y,y2):
+                            newRelation = newRelation.add(x,y2)
+        return newRelation
+
