@@ -164,6 +164,5 @@ class Relation:
         return newRelation
 
 #returns class representing relations on a given set
-def get_relation_class(inputSet) {
-    return Relation(inputSet)    
-}
+def get_relation_class(inputSet):
+    return Relation(inputSet)
