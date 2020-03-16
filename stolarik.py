@@ -162,3 +162,8 @@ class Relation:
                                     newRelation = newRelation.add(x,y1)
                                     newElement = True
         return newRelation
+
+#returns class representing relations on a given set
+def get_relation_class(inputSet) {
+    return Relation(inputSet)    
+}
